@@ -18,7 +18,7 @@ const EventList = ({ events, onEventDelete, onToggleReminder, onEventEdit }) => 
   };
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap justify-center gap-4 mt-4">
       {events.map(event => (
         <EventItem
           key={event._id}

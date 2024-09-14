@@ -54,8 +54,8 @@ const Home = () => {
   };
 
   return (
-    <div className='flex flex-col items-center p-6 bg-gray-100'>
-      <h1 className='text-2xl font-bold text-white bg-green-600 rounded-lg p-4 mb-6'>
+    <div className='flex flex-col items-center p-6 bg-gray-600'>
+      <h1 className='text-2xl w-full font-bold text-white bg-green-600 rounded-lg p-4 mb-6 text-center'>
         Event Management App
       </h1>
       <EventForm onEventAdd={handleEventAdd} />

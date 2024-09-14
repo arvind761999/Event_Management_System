@@ -13,10 +13,10 @@ const eventSchema = new mongoose.Schema({
         type: Boolean, 
         default: false
      },
-     organizerEmail: { 
-        type: String,
-         required: true
-         } 
+    //  organizerEmail: { 
+    //     type: String,
+    //      required: true
+    //      } 
 
 });
 const Event = mongoose.model('Event', eventSchema);

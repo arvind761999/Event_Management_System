@@ -22,64 +22,63 @@ const EventItem = ({ event, onEventDelete, onToggleReminder, onEventEdit }) => {
   };
 
   return (
-    <div className="bg-green-100 border border-gray-300 rounded-lg m-2 p-4 w-64 shadow-md hover:shadow-lg">
-      <div className="mb-4">
+    <div className="w-full max-w-sm p-4 bg-white border rounded-lg shadow-lg hover:shadow-xl space-y-4">
+      <div>
         {isEditing ? (
           <>
             <input
               type="text"
               value={editedTitle}
               onChange={(e) => setEditedTitle(e.target.value)}
-              className="border border-gray-300 rounded p-2 w-full mb-2"
+              className="w-full p-2 border border-gray-300 rounded-md mb-2 focus:outline-none"
             />
             <input
               type="date"
               value={editedDate}
               onChange={(e) => setEditedDate(e.target.value)}
-              className="border border-gray-300 rounded p-2 w-full mb-2"
+              className="w-full p-2 border border-gray-300 rounded-md mb-2 focus:outline-none"
             />
             <input
               type="time"
               value={editedReminderTime}
               onChange={(e) => setEditedReminderTime(e.target.value)}
-              className="border border-gray-300 rounded p-2 w-full"
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none"
             />
           </>
         ) : (
           <>
             <h3 className="font-bold text-lg">{event.title}</h3>
-            <span className="text-gray-600">
-              {/* <span className="font-bold">Event On:</span> {moment(event.date).add(1, 'days').calendar()} */}
+            <p className="text-gray-600">
               <span className="font-bold">Event On:</span> {moment(event.date).local().format('MMMM Do YYYY')}
-            </span>
+            </p>
             {event.reminderTime && (
-              <div>
+              <p>
                 <span className="font-bold">Reminder Time:</span> {event.reminderTime}
-              </div>
+              </p>
             )}
           </>
         )}
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between space-x-2">
         {isEditing ? (
           <>
-            <button onClick={handleSaveClick} className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+            <button onClick={handleSaveClick} className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600">
               Save
             </button>
-            <button onClick={handleCancelClick} className="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600">
+            <button onClick={handleCancelClick} className="w-full py-2 px-4 bg-gray-500 text-white rounded-md hover:bg-gray-600">
               Cancel
             </button>
           </>
         ) : (
           <>
-            <button onClick={() => onToggleReminder(event._id)} className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
+            <button onClick={() => onToggleReminder(event._id)} className="w-full py-2 px-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600">
               {event.reminder ? 'Disable Reminder' : 'Enable Reminder'}
             </button>
-            <button onClick={() => onEventDelete(event._id)} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+            <button onClick={() => onEventDelete(event._id)} className="w-full py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-600">
               Delete
             </button>
-            <button onClick={handleEditClick} className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+            <button onClick={handleEditClick} className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600">
               Edit
             </button>
           </>
